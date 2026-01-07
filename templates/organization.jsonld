@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://YOUR_WEBSITE.com",
+  "name": "YOUR_COMPANY_NAME",
+  "alternateName": "YOUR_ALTERNATE_NAME",
+  "url": "https://YOUR_WEBSITE.com",
+  "logo": "https://YOUR_WEBSITE.com/logo.png",
+  "description": "YOUR_COMPANY_DESCRIPTION",
+  "foundingDate": "YYYY-MM-DD",
+  "email": "contact@YOUR_WEBSITE.com",
+  "telephone": "+1-XXX-XXXX",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "YOUR_STREET_ADDRESS",
+    "addressLocality": "YOUR_CITY",
+    "addressRegion": "YOUR_STATE",
+    "postalCode": "YOUR_ZIP",
+    "addressCountry": "YOUR_COUNTRY_CODE"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+1-XXX-XXXX",
+      "email": "support@YOUR_WEBSITE.com",
+      "availableLanguage": ["en"]
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/YOUR_COMPANY",
+    "https://twitter.com/YOUR_COMPANY",
+    "https://github.com/YOUR_COMPANY"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "FOUNDER_NAME",
+    "jobTitle": "FOUNDER_TITLE"
+  },
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": 0
+  },
+  "location": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "YOUR_STREET_ADDRESS",
+      "addressLocality": "YOUR_CITY",
+      "addressRegion": "YOUR_STATE",
+      "postalCode": "YOUR_ZIP",
+      "addressCountry": "YOUR_COUNTRY_CODE"
+    }
+  },
+  "knowsAbout": [
+    "YOUR_EXPERTISE_1",
+    "YOUR_EXPERTISE_2",
+    "YOUR_EXPERTISE_3"
+  ]
+}

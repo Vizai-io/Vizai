@@ -1,0 +1,64 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DataFeed",
+  "name": "Example Co. Updates Feed",
+  "description": "Recent business updates, announcements, and news from Example Co.",
+  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-06",
+  "dataFeedElement": [
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2026-01-05",
+      "item": {
+        "@type": "Article",
+        "headline": "Example Co. Launches CloudSync Pro 2.0",
+        "description": "Major update brings enhanced performance and new integration features to our flagship cloud synchronization platform.",
+        "datePublished": "2026-01-05",
+        "author": {
+          "@type": "Organization",
+          "name": "Example Co."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Example Co."
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2026-01-03",
+      "item": {
+        "@type": "Article",
+        "headline": "Q4 2025 Business Update",
+        "description": "Example Co. reports strong Q4 performance with 30% year-over-year growth and expansion into new markets.",
+        "datePublished": "2026-01-03",
+        "author": {
+          "@type": "Organization",
+          "name": "Example Co."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Example Co."
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-12-15",
+      "item": {
+        "@type": "Article",
+        "headline": "New Partnership Announcement",
+        "description": "Example Co. partners with leading cloud providers to enhance service offerings and global reach.",
+        "datePublished": "2025-12-15",
+        "author": {
+          "@type": "Organization",
+          "name": "Example Co."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Example Co."
+        }
+      }
+    }
+  ]
+}

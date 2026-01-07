@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "name": "VizAI AI Data Hub",
+  "description": "Canonical repository of machine-readable business data published as Schema.org JSON-LD. This catalog indexes structured datasets for AI systems, data consumers, and analysts.",
+  "url": "https://github.com/vizai-io/vizai",
+  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-06",
+  "publisher": {
+    "@type": "Organization",
+    "name": "VizAI",
+    "email": "data@vizai.io"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "dataset": [
+    {
+      "@type": "Dataset",
+      "name": "Example Company Dataset",
+      "description": "Complete example business record demonstrating the VizAI data structure",
+      "url": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/example-co/manifest.json",
+      "datePublished": "2026-01-06",
+      "dateModified": "2026-01-06",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "application/ld+json",
+        "contentUrl": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/example-co/manifest.json"
+      }
+    }
+  ]
+}

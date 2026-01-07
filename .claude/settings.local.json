@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(python scripts/validate.py:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(for f in dataset-catalog.json businesses/example-co/*.jsonld businesses/example-co/updates/*.json businesses/example-co/*.json templates/*.json templates/*.jsonld)",
+      "Bash(do python -m json.tool \"$f\")",
+      "Bash(echo:*)",
+      "Bash(done)"
+    ]
+  }
+}

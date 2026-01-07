@@ -1,0 +1,43 @@
+name: Validate VizAI Data Hub
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Run validation script
+      run: python3 scripts/validate.py
+
+    - name: Validate sitemap.xml syntax
+      run: |
+        if [ -f sitemap.xml ]; then
+          xmllint --noout sitemap.xml && echo "✓ sitemap.xml is valid XML" || exit 1
+        else
+          echo "⚠ sitemap.xml not found"
+        fi
+
+    - name: Check for required root files
+      run: |
+        REQUIRED_FILES="dataset-catalog.json README.md README.ai.md"
+        for file in $REQUIRED_FILES; do
+          if [ ! -f "$file" ]; then
+            echo "✗ Missing required file: $file"
+            exit 1
+          else
+            echo "✓ Found $file"
+          fi
+        done

@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "YOUR_COMPANY_NAME Dataset",
+  "description": "Complete business record for YOUR_COMPANY_NAME with organization details, products, and update feed.",
+  "url": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/YOUR_SLUG/manifest.json",
+  "datePublished": "YYYY-MM-DD",
+  "dateModified": "YYYY-MM-DD",
+  "publisher": {
+    "@type": "Organization",
+    "name": "VizAI",
+    "email": "data@vizai.io"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "Organization Profile",
+      "description": "Schema.org Organization JSON-LD with complete business profile",
+      "encodingFormat": "application/ld+json",
+      "contentUrl": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/YOUR_SLUG/organization.jsonld"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Product Catalog",
+      "description": "Schema.org ItemList of products and services (optional)",
+      "encodingFormat": "application/ld+json",
+      "contentUrl": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/YOUR_SLUG/products.jsonld"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Updates Feed",
+      "description": "Schema.org DataFeed with recent business updates (optional)",
+      "encodingFormat": "application/ld+json",
+      "contentUrl": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/YOUR_SLUG/updates/feed.json"
+    }
+  ]
+}
