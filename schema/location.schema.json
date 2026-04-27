@@ -3,15 +3,25 @@
   "$id": "https://vizai.io/schema/location.schema.json",
   "title": "Location",
   "type": "object",
-  "required": ["name", "city", "country"],
+  "required": ["name", "city", "country", "sourceIds", "factType"],
   "properties": {
-    "name": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
     "type": { "type": "string" },
     "street": { "type": "string" },
-    "city": { "type": "string" },
+    "city": { "type": "string", "minLength": 1 },
     "region": { "type": "string" },
     "postalCode": { "type": "string" },
-    "country": { "type": "string" }
+    "country": { "type": "string", "minLength": 1 },
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "factType": {
+      "type": "string",
+      "enum": ["customer_provided", "website_extracted", "human_approved"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

@@ -1,0 +1,17 @@
+{
+  "customerSlug": "customer-slug",
+  "status": "pending",
+  "approvedBy": null,
+  "approvedAt": null,
+  "submittedAt": "2026-01-01",
+  "scope": [
+    "profile.json",
+    "profile.jsonld",
+    "services.md",
+    "products.md",
+    "sources.json"
+  ],
+  "notes": "Set to approved only after customer confirmation and source review.",
+  "confidenceScore": 0.8,
+  "verificationStatus": "unverified"
+}

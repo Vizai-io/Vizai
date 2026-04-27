@@ -3,12 +3,22 @@
   "$id": "https://vizai.io/schema/service.schema.json",
   "title": "Service",
   "type": "object",
-  "required": ["name", "description"],
+  "required": ["name", "description", "sourceIds", "factType"],
   "properties": {
-    "name": { "type": "string" },
-    "description": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
     "category": { "type": "string" },
-    "targetAudience": { "type": "array", "items": { "type": "string" } }
+    "targetAudience": { "type": "array", "items": { "type": "string" } },
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "factType": {
+      "type": "string",
+      "enum": ["customer_provided", "website_extracted", "human_approved"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

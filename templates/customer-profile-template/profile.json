@@ -1,0 +1,148 @@
+{
+  "vizaiId": "customer-slug",
+  "isSample": false,
+  "status": "draft",
+  "legalName": {
+    "value": "{{CUSTOMER_LEGAL_NAME}}",
+    "sourceIds": ["src-client-001"],
+    "factType": "customer_provided",
+    "confidence": 0.9,
+    "notes": "Replace with legal entity name exactly as provided by customer."
+  },
+  "brandName": {
+    "value": "{{CUSTOMER_NAME}}",
+    "sourceIds": ["src-web-001"],
+    "factType": "website_extracted",
+    "confidence": 0.85
+  },
+  "domain": "{{DOMAIN}}",
+  "description": {
+    "value": "{{FULL_DESCRIPTION}}",
+    "sourceIds": ["src-client-001"],
+    "factType": "human_approved",
+    "confidence": 0.9
+  },
+  "shortDescription": {
+    "value": "{{SHORT_DESCRIPTION}}",
+    "sourceIds": ["src-client-001"],
+    "factType": "human_approved",
+    "confidence": 0.9
+  },
+  "businessCategory": {
+    "value": "{{BUSINESS_CATEGORY}}",
+    "sourceIds": ["src-client-001"],
+    "factType": "customer_provided",
+    "confidence": 0.85
+  },
+  "naicsCodes": [
+    {
+      "value": "{{NAICS_CODE_OPTIONAL}}",
+      "sourceIds": ["src-client-001"],
+      "factType": "customer_provided",
+      "confidence": 0.8
+    }
+  ],
+  "services": [
+    {
+      "name": "{{SERVICE_NAME_1}}",
+      "description": "{{SERVICE_DESCRIPTION_1}}",
+      "category": "{{SERVICE_CATEGORY}}",
+      "targetAudience": ["{{TARGET_AUDIENCE}}"],
+      "sourceIds": ["src-web-001"],
+      "factType": "website_extracted",
+      "confidence": 0.8
+    }
+  ],
+  "products": [
+    {
+      "name": "{{PRODUCT_NAME_1}}",
+      "description": "{{PRODUCT_DESCRIPTION_1}}",
+      "category": "{{PRODUCT_CATEGORY}}",
+      "url": "https://example.com/products/{{PRODUCT_SLUG}}",
+      "sourceIds": ["src-web-001"],
+      "factType": "website_extracted",
+      "confidence": 0.8
+    }
+  ],
+  "industriesServed": [
+    {
+      "value": "{{INDUSTRY_1}}",
+      "sourceIds": ["src-client-001"],
+      "factType": "customer_provided",
+      "confidence": 0.8
+    }
+  ],
+  "locations": [
+    {
+      "name": "{{LOCATION_NAME}}",
+      "type": "Headquarters",
+      "city": "{{CITY}}",
+      "region": "{{REGION_OR_STATE}}",
+      "country": "{{COUNTRY_CODE}}",
+      "sourceIds": ["src-web-001"],
+      "factType": "website_extracted",
+      "confidence": 0.85
+    }
+  ],
+  "serviceAreas": [
+    {
+      "value": "{{SERVICE_AREA_1}}",
+      "sourceIds": ["src-client-001"],
+      "factType": "customer_provided",
+      "confidence": 0.8
+    }
+  ],
+  "certifications": [
+    {
+      "value": "{{CERTIFICATION_OPTIONAL}}",
+      "sourceIds": ["src-client-001"],
+      "factType": "customer_provided",
+      "confidence": 0.75
+    }
+  ],
+  "differentiators": [
+    {
+      "value": "{{KEY_DIFFERENTIATOR_1}}",
+      "sourceIds": ["src-client-001"],
+      "factType": "human_approved",
+      "confidence": 0.85
+    }
+  ],
+  "faqs": [
+    {
+      "question": "{{FAQ_QUESTION_1}}",
+      "answer": "{{FAQ_ANSWER_1}}",
+      "sourceIds": ["src-client-001"],
+      "factType": "human_approved"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/example",
+    "https://x.com/example"
+  ],
+  "contactPoints": [
+    {
+      "type": "general",
+      "value": "info@example.com",
+      "label": "{{CONTACT_LABEL}}",
+      "sourceIds": ["src-web-001"],
+      "factType": "website_extracted"
+    }
+  ],
+  "lastReviewed": "2026-01-01",
+  "lastUpdated": "2026-01-01",
+  "approval": {
+    "customerSlug": "customer-slug",
+    "status": "pending",
+    "approvedBy": null,
+    "approvedAt": null,
+    "submittedAt": "2026-01-01",
+    "scope": ["profile.json", "profile.jsonld", "sources.json"],
+    "notes": "Replace placeholder dates and approval details during onboarding.",
+    "confidenceScore": 0.8,
+    "verificationStatus": "unverified"
+  },
+  "confidenceScore": 0.8,
+  "verificationStatus": "unverified",
+  "version": "1.0.0"
+}

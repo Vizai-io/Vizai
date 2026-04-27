@@ -8,9 +8,24 @@
     "id": { "type": "string" },
     "title": { "type": "string" },
     "url": { "type": "string", "format": "uri" },
-    "type": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": [
+        "website",
+        "product-page",
+        "service-page",
+        "document",
+        "email",
+        "interview",
+        "other"
+      ]
+    },
     "capturedAt": { "type": "string", "format": "date" },
-    "notes": { "type": "string" }
+    "notes": { "type": "string" },
+    "factType": {
+      "type": "string",
+      "enum": ["customer_provided", "website_extracted", "human_approved"]
+    }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

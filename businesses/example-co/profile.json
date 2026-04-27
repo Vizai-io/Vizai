@@ -1,51 +1,170 @@
 {
-  "id": "example-co",
+  "vizaiId": "example-co",
   "isSample": true,
-  "status": "draft",
-  "name": "Example Co.",
-  "legalName": "Example Company LLC",
-  "tagline": "Fictional cloud software company used for VizAI demos.",
-  "website": "https://example-co.com",
-  "description": "Example Co. is a fictional business profile used to demonstrate the VizAI Data Hub structure.",
-  "founded": "2020-01-15",
-  "headquarters": {
-    "city": "San Francisco",
-    "region": "CA",
-    "country": "US"
+  "status": "in_review",
+  "legalName": {
+    "value": "Example Company LLC",
+    "sourceIds": ["src-001"],
+    "factType": "customer_provided",
+    "confidence": 0.95
   },
-  "industries": [
-    "Software",
-    "Cloud Infrastructure",
-    "Data Analytics"
+  "brandName": {
+    "value": "Example Co.",
+    "sourceIds": ["src-001"],
+    "factType": "website_extracted",
+    "confidence": 0.93
+  },
+  "domain": "example-co.com",
+  "description": {
+    "value": "Example Co. is a fictional business profile used to demonstrate the VizAI Data Hub structure.",
+    "sourceIds": ["src-001"],
+    "factType": "human_approved",
+    "confidence": 0.98
+  },
+  "shortDescription": {
+    "value": "Fictional cloud software company used for VizAI demos.",
+    "sourceIds": ["src-001"],
+    "factType": "human_approved",
+    "confidence": 0.98
+  },
+  "businessCategory": {
+    "value": "B2B Software",
+    "sourceIds": ["src-001", "src-002"],
+    "factType": "human_approved",
+    "confidence": 0.9
+  },
+  "naicsCodes": [
+    {
+      "value": "541511",
+      "sourceIds": ["src-001"],
+      "factType": "website_extracted",
+      "confidence": 0.7,
+      "notes": "Sample code for demonstration only."
+    }
   ],
   "services": [
-    "Cloud migration consulting",
-    "Managed data integration",
-    "AI readiness assessments"
+    {
+      "name": "AI Readiness Audit",
+      "description": "Assesses current AI visibility and information quality.",
+      "category": "Consulting",
+      "targetAudience": ["Mid-market businesses"],
+      "sourceIds": ["src-001"],
+      "factType": "human_approved",
+      "confidence": 0.95
+    },
+    {
+      "name": "Cloud Migration Advisory",
+      "description": "Plans and guides migration from legacy systems.",
+      "category": "Professional Services",
+      "targetAudience": ["IT leaders"],
+      "sourceIds": ["src-002"],
+      "factType": "customer_provided",
+      "confidence": 0.88
+    }
   ],
   "products": [
-    "CloudSync Pro",
-    "DataAnalyzer Suite"
+    {
+      "name": "CloudSync Pro",
+      "description": "Fictional integration product for cross-cloud sync.",
+      "category": "Software",
+      "url": "https://example-co.com/products/cloudsync-pro",
+      "sourceIds": ["src-002"],
+      "factType": "website_extracted",
+      "confidence": 0.9
+    }
+  ],
+  "industriesServed": [
+    {
+      "value": "Software",
+      "sourceIds": ["src-001"],
+      "factType": "human_approved",
+      "confidence": 0.95
+    },
+    {
+      "value": "Data Analytics",
+      "sourceIds": ["src-001"],
+      "factType": "customer_provided",
+      "confidence": 0.85
+    }
   ],
   "locations": [
     {
       "name": "San Francisco HQ",
+      "type": "Headquarters",
       "city": "San Francisco",
       "region": "CA",
       "country": "US",
-      "type": "Headquarters"
+      "sourceIds": ["src-001"],
+      "factType": "website_extracted",
+      "confidence": 0.92
+    }
+  ],
+  "serviceAreas": [
+    {
+      "value": "United States",
+      "sourceIds": ["src-001"],
+      "factType": "human_approved",
+      "confidence": 0.9
+    }
+  ],
+  "certifications": [
+    {
+      "value": "SOC 2 Type II (sample placeholder)",
+      "sourceIds": ["src-002"],
+      "factType": "customer_provided",
+      "confidence": 0.65
+    }
+  ],
+  "differentiators": [
+    {
+      "value": "Structured AI-readable business profile publishing workflow.",
+      "sourceIds": ["src-001", "src-002"],
+      "factType": "human_approved",
+      "confidence": 0.91
     }
   ],
   "faqs": [
     {
       "question": "Is this a real company?",
-      "answer": "No. Example Co. is fictional sample data."
+      "answer": "No. Example Co. is fictional sample data.",
+      "sourceIds": ["src-001"],
+      "factType": "human_approved"
     }
   ],
-  "proofPoints": [
-    "Sample benchmark metrics only.",
-    "No real customer claims are included."
+  "sameAs": [
+    "https://www.linkedin.com/company/example-co",
+    "https://github.com/example-co"
   ],
-  "updatedAt": "2026-04-27",
-  "version": "1.0.0"
+  "contactPoints": [
+    {
+      "type": "general",
+      "value": "contact@example-co.com",
+      "label": "General Contact",
+      "sourceIds": ["src-001"],
+      "factType": "website_extracted"
+    },
+    {
+      "type": "sales",
+      "value": "sales@example-co.com",
+      "label": "Sales Contact",
+      "sourceIds": ["src-002"],
+      "factType": "customer_provided"
+    }
+  ],
+  "lastReviewed": "2026-04-27",
+  "lastUpdated": "2026-04-27",
+  "approval": {
+    "customerSlug": "example-co",
+    "status": "in_review",
+    "approvedBy": null,
+    "approvedAt": null,
+    "submittedAt": "2026-04-27",
+    "scope": ["profile.json", "profile.jsonld", "sources.json"],
+    "notes": "Sample approval metadata for fictional profile.",
+    "confidenceScore": 0.9,
+    "verificationStatus": "partially_verified"
+  },
+  "confidenceScore": 0.9,
+  "verificationStatus": "partially_verified",
+  "version": "2.0.0"
 }

@@ -3,15 +3,23 @@
   "$id": "https://vizai.io/schema/approval.schema.json",
   "title": "Approval",
   "type": "object",
-  "required": ["customerSlug", "status", "submittedAt"],
+  "required": ["status", "submittedAt", "verificationStatus"],
   "properties": {
     "customerSlug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-    "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "in_review", "approved", "rejected", "expired"]
+    },
     "approvedBy": { "type": ["string", "null"] },
     "approvedAt": { "type": ["string", "null"], "format": "date" },
     "submittedAt": { "type": "string", "format": "date" },
     "scope": { "type": "array", "items": { "type": "string" } },
-    "notes": { "type": "string" }
+    "notes": { "type": "string" },
+    "confidenceScore": { "type": "number", "minimum": 0, "maximum": 1 },
+    "verificationStatus": {
+      "type": "string",
+      "enum": ["unverified", "partially_verified", "verified", "disputed"]
+    }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

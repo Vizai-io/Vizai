@@ -3,29 +3,146 @@
   "$id": "https://vizai.io/schema/business-profile.schema.json",
   "title": "BusinessProfile",
   "type": "object",
-  "required": ["id", "name", "website", "description", "isSample", "version"],
+  "required": [
+    "vizaiId",
+    "status",
+    "legalName",
+    "brandName",
+    "domain",
+    "description",
+    "shortDescription",
+    "businessCategory",
+    "services",
+    "products",
+    "industriesServed",
+    "locations",
+    "serviceAreas",
+    "faqs",
+    "sameAs",
+    "contactPoints",
+    "lastReviewed",
+    "lastUpdated",
+    "approval",
+    "confidenceScore",
+    "verificationStatus"
+  ],
   "properties": {
-    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "vizaiId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "isSample": { "type": "boolean" },
-    "status": { "type": "string", "enum": ["draft", "review", "approved"] },
-    "name": { "type": "string", "minLength": 1 },
-    "legalName": { "type": "string" },
-    "website": { "type": "string", "format": "uri" },
-    "description": { "type": "string", "minLength": 1 },
-    "industries": {
+    "status": {
+      "type": "string",
+      "enum": ["draft", "in_review", "approved", "published", "archived"]
+    },
+    "legalName": { "$ref": "#/$defs/claimString" },
+    "brandName": { "$ref": "#/$defs/claimString" },
+    "domain": { "type": "string", "minLength": 1 },
+    "description": { "$ref": "#/$defs/claimString" },
+    "shortDescription": { "$ref": "#/$defs/claimString" },
+    "businessCategory": { "$ref": "#/$defs/claimString" },
+    "naicsCodes": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "$ref": "#/$defs/claimString" }
     },
     "services": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "$ref": "service.schema.json" }
     },
     "products": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "$ref": "product.schema.json" }
     },
-    "updatedAt": { "type": "string", "format": "date" },
+    "industriesServed": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claimString" }
+    },
+    "locations": {
+      "type": "array",
+      "items": { "$ref": "location.schema.json" }
+    },
+    "serviceAreas": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claimString" }
+    },
+    "certifications": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claimString" }
+    },
+    "differentiators": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claimString" }
+    },
+    "faqs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["question", "answer", "sourceIds", "factType"],
+        "properties": {
+          "question": { "type": "string", "minLength": 1 },
+          "answer": { "type": "string", "minLength": 1 },
+          "sourceIds": { "$ref": "#/$defs/sourceIds" },
+          "factType": { "$ref": "#/$defs/factType" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sameAs": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "contactPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "value", "sourceIds", "factType"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["sales", "support", "general", "media", "billing", "other"]
+          },
+          "value": { "type": "string", "minLength": 1 },
+          "label": { "type": "string" },
+          "sourceIds": { "$ref": "#/$defs/sourceIds" },
+          "factType": { "$ref": "#/$defs/factType" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "lastReviewed": { "type": "string", "format": "date" },
+    "lastUpdated": { "type": "string", "format": "date" },
+    "approval": { "$ref": "approval.schema.json" },
+    "confidenceScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "verificationStatus": {
+      "type": "string",
+      "enum": ["unverified", "partially_verified", "verified", "disputed"]
+    },
     "version": { "type": "string" }
   },
-  "additionalProperties": true
+  "$defs": {
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "factType": {
+      "type": "string",
+      "enum": ["customer_provided", "website_extracted", "human_approved"]
+    },
+    "claimString": {
+      "type": "object",
+      "required": ["value", "sourceIds", "factType"],
+      "properties": {
+        "value": { "type": "string", "minLength": 1 },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "factType": { "$ref": "#/$defs/factType" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
 }

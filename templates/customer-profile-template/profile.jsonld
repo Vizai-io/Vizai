@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://{{DOMAIN}}#organization",
+  "name": "{{CUSTOMER_NAME}}",
+  "legalName": "{{CUSTOMER_LEGAL_NAME}}",
+  "url": "https://{{DOMAIN}}",
+  "description": "{{FULL_DESCRIPTION}}",
+  "industry": [
+    "{{INDUSTRY_1}}",
+    "{{INDUSTRY_2_OPTIONAL}}"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{CITY}}",
+    "addressRegion": "{{REGION_OR_STATE}}",
+    "addressCountry": "{{COUNTRY_CODE}}"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/{{LINKEDIN_SLUG}}",
+    "https://x.com/{{X_HANDLE_OPTIONAL}}"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "general",
+      "email": "{{CONTACT_EMAIL}}"
+    }
+  ],
+  "knowsAbout": [
+    "{{SERVICE_KEYWORD_1}}",
+    "{{SERVICE_KEYWORD_2}}"
+  ],
+  "disambiguatingDescription": "Template file. Replace all {{PLACEHOLDER}} values before use."
+}

@@ -1,0 +1,32 @@
+{
+  "customerSlug": "customer-slug",
+  "sources": [
+    {
+      "id": "src-client-001",
+      "title": "{{CUSTOMER_NAME}} intake form",
+      "url": "https://example.com/intake/{{CUSTOMER_SLUG}}",
+      "type": "document",
+      "capturedAt": "2026-01-01",
+      "notes": "Primary customer-provided facts.",
+      "factType": "customer_provided"
+    },
+    {
+      "id": "src-web-001",
+      "title": "{{CUSTOMER_NAME}} official website",
+      "url": "https://{{DOMAIN}}",
+      "type": "website",
+      "capturedAt": "2026-01-01",
+      "notes": "Public website extraction source.",
+      "factType": "website_extracted"
+    },
+    {
+      "id": "src-approval-001",
+      "title": "Approval confirmation from {{CUSTOMER_NAME}}",
+      "url": "https://example.com/approvals/{{CUSTOMER_SLUG}}",
+      "type": "email",
+      "capturedAt": "2026-01-01",
+      "notes": "Used to mark claims as human-approved.",
+      "factType": "human_approved"
+    }
+  ]
+}
