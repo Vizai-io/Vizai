@@ -78,6 +78,49 @@ Run the validation script before committing:
 python3 scripts/validate.py
 ```
 
+Validate a specific customer profile package:
+
+```bash
+python scripts/validate_business_profile.py businesses/example-co
+```
+
+Validate all customer profile packages:
+
+```bash
+python scripts/validate_business_profile.py
+```
+
+Build crawler-friendly catalog and sitemap artifacts:
+
+```bash
+python scripts/build_dataset_catalog.py
+python scripts/build_sitemap.py
+```
+
+Notes:
+- `build_dataset_catalog.py` scans `businesses/`, includes active profiles, and writes root `dataset-catalog.json`.
+- `build_sitemap.py` writes root `sitemap.xml` and uses a configurable `BASE_URL` constant near the top of the script.
+
+Create a safe starter customer package (no scraping, no AI calls):
+
+```bash
+python scripts/onboard_customer.py --name "Example Co" --domain "https://example.com" --country CA --region ON --city Perth
+```
+
+Create a safe website crawl plan (no heavy scraping):
+
+```bash
+python scripts/plan_website_crawl.py --domain "https://example.com" --output businesses/example-co/crawl-plan.json
+```
+
+Always respect `robots.txt` and website terms before running any real crawl.
+
+Install minimal dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
 The script checks:
 - JSON validity for all `.json` and `.jsonld` files
 - Required files exist in each business folder
@@ -86,6 +129,12 @@ The script checks:
 
 ### Continuous Integration
 GitHub Actions automatically runs validation on all pushes and pull requests. See `.github/workflows/validate.yml` for details.
+
+The dedicated Data Hub workflow is `.github/workflows/validate-vizai-data-hub.yml` and runs:
+- `python scripts/validate_business_profile.py businesses/example-co`
+- `python scripts/build_registry_entry.py businesses/example-co`
+- `python scripts/build_dataset_catalog.py`
+- `python scripts/build_sitemap.py`
 
 ## Data Access
 

@@ -1,0 +1,40 @@
+{
+  "customerSlug": "customer-slug",
+  "extractedAt": "2026-01-01T00:00:00Z",
+  "facts": [
+    {
+      "factId": "fact-brand-name",
+      "claim": "{{CUSTOMER_NAME}} is the public brand name.",
+      "category": "identity",
+      "normalizedValue": "{{CUSTOMER_NAME}}",
+      "sourceUrl": "https://{{DOMAIN}}",
+      "sourceSnippet": "Page title and hero section show '{{CUSTOMER_NAME}}'.",
+      "sourceType": "website",
+      "confidence": 0.9,
+      "extractedAt": "2026-01-01T00:00:00Z",
+      "requiresApproval": true,
+      "approvalStatus": "pending",
+      "suggestedProfileField": "brandName.value",
+      "notes": "Confirm legal distinction between brand and legal name."
+    },
+    {
+      "factId": "fact-hq-location",
+      "claim": "{{CUSTOMER_NAME}} lists {{CITY}}, {{REGION_OR_STATE}} as headquarters.",
+      "category": "location",
+      "normalizedValue": {
+        "city": "{{CITY}}",
+        "region": "{{REGION_OR_STATE}}",
+        "country": "{{COUNTRY_CODE}}"
+      },
+      "sourceUrl": "https://{{DOMAIN}}/contact",
+      "sourceSnippet": "Contact page footer includes office location.",
+      "sourceType": "website",
+      "confidence": 0.8,
+      "extractedAt": "2026-01-01T00:00:00Z",
+      "requiresApproval": true,
+      "approvalStatus": "needs_review",
+      "suggestedProfileField": "locations[0]",
+      "notes": "Check if this is HQ or only a mailing address."
+    }
+  ]
+}

@@ -6,30 +6,50 @@ Build sitemap.xml for key repository data assets.
 from pathlib import Path
 from datetime import date
 
+BASE_URL = "https://raw.githubusercontent.com/vizai-io/vizai/main"
+
+
+def build_url(path: str) -> str:
+    return f"{BASE_URL}/{path}"
+
+
+def add_if_exists(url_paths: list[str], file_path: Path, relative_path: str) -> None:
+    if file_path.exists():
+        url_paths.append(build_url(relative_path))
+
 
 def main() -> int:
     repo_root = Path(__file__).parent.parent
     businesses_dir = repo_root / "businesses"
     today = date.today().isoformat()
 
-    urls = [
-        "https://raw.githubusercontent.com/vizai-io/vizai/main/README.ai.md",
-        "https://raw.githubusercontent.com/vizai-io/vizai/main/dataset-catalog.json",
+    if not businesses_dir.exists():
+        print("No businesses directory found.")
+        return 1
+
+    url_paths = [
+        build_url("README.ai.md"),
+        build_url("dataset-catalog.json"),
+        build_url("schema/business-profile.schema.json"),
+        build_url("schema/registry-entry.schema.json"),
     ]
 
     for customer_dir in sorted(businesses_dir.iterdir()):
         if not customer_dir.is_dir() or customer_dir.name.startswith("."):
             continue
         slug = customer_dir.name
-        for file_name in ["manifest.json", "profile.json", "profile.jsonld", "organization.jsonld"]:
-            path = customer_dir / file_name
-            if path.exists():
-                urls.append(
-                    f"https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/{slug}/{file_name}"
-                )
+        base_rel = f"businesses/{slug}"
+        add_if_exists(url_paths, customer_dir / "README.md", f"{base_rel}/README.md")
+        add_if_exists(url_paths, customer_dir / "profile.json", f"{base_rel}/profile.json")
+        add_if_exists(url_paths, customer_dir / "profile.jsonld", f"{base_rel}/profile.jsonld")
+        add_if_exists(url_paths, customer_dir / "registry-entry.json", f"{base_rel}/registry-entry.json")
+        add_if_exists(url_paths, customer_dir / "manifest.json", f"{base_rel}/manifest.json")
+        add_if_exists(url_paths, customer_dir / "organization.jsonld", f"{base_rel}/organization.jsonld")
+        add_if_exists(url_paths, customer_dir / "products.jsonld", f"{base_rel}/products.jsonld")
+        add_if_exists(url_paths, customer_dir / "updates" / "feed.json", f"{base_rel}/updates/feed.json")
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for url in urls:
+    for url in sorted(set(url_paths)):
         lines.extend(
             [
                 "  <url>",

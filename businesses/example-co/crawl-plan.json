@@ -1,0 +1,80 @@
+{
+  "domain": "https://example.com",
+  "generatedAt": "2026-04-27T04:51:17.907471+00:00",
+  "safetyNotes": [
+    "This is only a crawl plan. No heavy scraping is performed.",
+    "Respect robots.txt directives and website terms before any crawl execution.",
+    "Use minimal request rates and collect only necessary public business facts."
+  ],
+  "checks": {
+    "robotsTxt": {
+      "url": "https://example.com/robots.txt",
+      "status": "unavailable",
+      "httpStatus": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    "sitemap": {
+      "defaultUrl": "https://example.com/sitemap.xml",
+      "checkedSitemaps": [
+        "https://example.com/sitemap.xml"
+      ],
+      "discoveredUrlCount": 9
+    }
+  },
+  "plan": [
+    {
+      "url": "https://example.com",
+      "priority": "high",
+      "reason": "Homepage is a primary source of business identity facts.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/about",
+      "priority": "high",
+      "reason": "About page likely contains company facts and positioning.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/contact",
+      "priority": "high",
+      "reason": "Contact page likely contains official contact points.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/faq",
+      "priority": "high",
+      "reason": "FAQ page often contains clear business Q&A facts.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/locations",
+      "priority": "high",
+      "reason": "Locations page likely contains office/service geography.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/products",
+      "priority": "high",
+      "reason": "Products page likely lists product facts.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/services",
+      "priority": "high",
+      "reason": "Services page likely describes offerings.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/certifications",
+      "priority": "medium",
+      "reason": "Certification page may include trust/compliance claims.",
+      "status": "planned"
+    },
+    {
+      "url": "https://example.com/industries",
+      "priority": "medium",
+      "reason": "Industry page may define target industries served.",
+      "status": "planned"
+    }
+  ]
+}

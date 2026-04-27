@@ -3,13 +3,28 @@
   "@type": "DataCatalog",
   "name": "VizAI AI Data Hub",
   "url": "https://github.com/vizai-io/vizai",
+  "dateModified": "2026-04-27",
+  "businessCount": 1,
+  "schemaReferences": {
+    "businessProfile": "schema/business-profile.schema.json",
+    "service": "schema/service.schema.json",
+    "product": "schema/product.schema.json",
+    "location": "schema/location.schema.json",
+    "source": "schema/source.schema.json",
+    "approval": "schema/approval.schema.json",
+    "registryEntry": "schema/registry-entry.schema.json"
+  },
   "dataset": [
     {
       "@type": "Dataset",
       "name": "Example Co. Dataset",
-      "description": "Example Co. is a fictional business profile used to demonstrate the VizAI Data Hub structure.",
-      "url": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/example-co/manifest.json",
-      "dateModified": "2026-04-27"
+      "description": "Fictional cloud software company used for VizAI demos.",
+      "identifier": "example-co",
+      "status": "in_review",
+      "dateModified": "2026-04-27",
+      "profilePath": "businesses/example-co/profile.json",
+      "profileJsonLdPath": "businesses/example-co/profile.jsonld",
+      "registryEntryPath": "businesses/example-co/registry-entry.json"
     }
   ]
 }

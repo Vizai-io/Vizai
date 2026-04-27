@@ -1,0 +1,37 @@
+{
+  "vizaiId": "example-co",
+  "businessName": "Example Co.",
+  "legalName": "Example Company LLC",
+  "domain": "example-co.com",
+  "shortDescription": "Fictional cloud software company used for VizAI demos.",
+  "businessCategory": "B2B Software",
+  "services": [
+    "AI Readiness Audit",
+    "Cloud Migration Advisory"
+  ],
+  "products": [
+    "CloudSync Pro"
+  ],
+  "industriesServed": [
+    "Software",
+    "Data Analytics"
+  ],
+  "locations": [
+    "San Francisco HQ (San Francisco, CA, US)"
+  ],
+  "serviceAreas": [
+    "United States"
+  ],
+  "profileUrl": "https://raw.githubusercontent.com/{ORG}/{REPO}/main/businesses/example-co/profile.json",
+  "jsonLdUrl": "https://raw.githubusercontent.com/{ORG}/{REPO}/main/businesses/example-co/profile.jsonld",
+  "sourceWebsite": "https://example-co.com",
+  "lastVerified": "2026-04-27",
+  "lastUpdated": "2026-04-27",
+  "status": "in_review",
+  "verificationSummary": {
+    "verificationStatus": "partially_verified",
+    "confidenceScore": 0.9,
+    "approvalStatus": "in_review",
+    "approvedAt": null
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vizai.io/schema/extracted-facts.schema.json",
+  "title": "ExtractedFactsBatch",
+  "type": "object",
+  "required": ["customerSlug", "extractedAt", "facts"],
+  "properties": {
+    "customerSlug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "extractedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/extractedFact"
+      }
+    }
+  },
+  "$defs": {
+    "approvalStatus": {
+      "type": "string",
+      "enum": ["pending", "approved", "rejected", "needs_review"]
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": ["website", "questionnaire", "manual", "third-party"]
+    },
+    "extractedFact": {
+      "type": "object",
+      "required": [
+        "factId",
+        "claim",
+        "category",
+        "normalizedValue",
+        "sourceUrl",
+        "sourceSnippet",
+        "sourceType",
+        "confidence",
+        "extractedAt",
+        "requiresApproval",
+        "approvalStatus",
+        "suggestedProfileField"
+      ],
+      "properties": {
+        "factId": {
+          "type": "string",
+          "pattern": "^fact-[a-z0-9-]+$"
+        },
+        "claim": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "normalizedValue": {},
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceSnippet": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceType": {
+          "$ref": "#/$defs/sourceType"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "extractedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "requiresApproval": {
+          "type": "boolean"
+        },
+        "approvalStatus": {
+          "$ref": "#/$defs/approvalStatus"
+        },
+        "suggestedProfileField": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
