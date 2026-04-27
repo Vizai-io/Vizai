@@ -1,0 +1,25 @@
+{
+  "slug": "example-co",
+  "name": "Example Co.",
+  "domain": "example-co.com",
+  "shortDescription": "Fictional cloud software company used for VizAI demos.",
+  "profileUrl": "https://raw.githubusercontent.com/{ORG}/{REPO}/main/businesses/example-co/profile.json",
+  "industry": [
+    "Software",
+    "Data Analytics"
+  ],
+  "services": [
+    "AI Readiness Audit",
+    "Cloud Migration Advisory"
+  ],
+  "products": [
+    "CloudSync Pro"
+  ],
+  "location": {
+    "country": "US",
+    "region": "CA",
+    "city": "San Francisco"
+  },
+  "updatedAt": "2026-04-27",
+  "status": "in_review"
+}

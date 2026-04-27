@@ -1,221 +1,182 @@
-# VizAI — AI Data Hub Template
+# VizAI Data Hub
 
-This repository is a production-ready template for publishing canonical, machine-readable business data (Schema.org JSON-LD and structured profile JSON) in a way that is easy to validate, version, and distribute.
+VizAI helps businesses become accurately understood by AI systems by creating verified, structured, source-backed business profiles.
 
-## Overview
+This repository is the VizAI Data Hub template and customer profile structure. It stores rich AI-readable business truth files, Schema.org JSON-LD, source attribution, approval metadata, and validation tooling.
 
-The VizAI AI Data Hub provides a standardized structure for publishing structured business information that can be consumed by AI systems, data analysts, and integrators. All data is published as valid Schema.org JSON-LD with comprehensive validation and version control via Git.
+---
 
-The repository now includes a foundational rich profile package model under `businesses/{customer-slug}/` with profile, sources, approval, and changelog artifacts.
-
-### Primary Audience
-- AI systems and data consumers
-- Analysts and integrators
-- Internal VizAI tooling
-- Researchers and developers
-
-## Quick Start
-
-1. **Fork this repository** or use it as a template
-2. **Duplicate the example**: Copy `businesses/example-co/` → `businesses/<your-company-slug>/`
-3. **Edit the files**: Update `manifest.json`, `organization.jsonld`, and other JSON-LD files with your business data
-4. **Run validation**: Execute `python3 scripts/validate.py` to ensure all files are valid
-5. **Commit and push**: Your data is now published and accessible via raw GitHub URLs
-
-## Repository Structure
+## What This Repository Contains
 
 ```
-/
-├── README.md                          # This file (human-facing overview)
-├── README.ai.md                       # Machine-facing instructions
-├── dataset-catalog.json               # Master index (Schema.org DataCatalog)
-├── sitemap.xml                        # Valid XML sitemap for crawlers
-│
-├── policies/
-│   └── ai-usage.md                    # Usage and attribution policy
-│
-├── businesses/
-│   └── example-co/                    # Example company record
-│       ├── manifest.json              # Per-company entrypoint
-│       ├── organization.jsonld        # Schema.org Organization
-│       ├── products.jsonld            # Schema.org ItemList (optional)
-│       └── updates/
-│           └── feed.json              # Schema.org DataFeed (optional)
-│
-├── templates/                         # Starter templates
-│   ├── manifest.json
-│   └── organization.jsonld
-│
-├── scripts/
-│   └── validate.py                    # Local validation script
-│
-└── .github/
-    └── workflows/
-        └── validate.yml               # CI validation on push/PR
+vizai/
+├── businesses/           # Customer profile packages
+│   └── {customer-slug}/ # Per-customer rich data
+│       ├── profile.json       # Structured business profile
+│       ├── profile.jsonld # Schema.org Organization
+│       ├── sources.json   # Source attribution
+│       ├── approval.json  # Approval metadata
+│       └── registry-entry.json
+├── schema/              # JSON schemas for validation
+├── templates/            # Customer onboarding templates
+├── scripts/             # Build, validation, and export tools
+├── policies/            # Data governance rules
+├── docs/                # Design documentation
+└── registry/            # Exported registry entries (ready to copy)
 ```
 
-## Key Files
+---
 
-### Root Level
-- **`dataset-catalog.json`**: Master index of all datasets (Schema.org DataCatalog)
-- **`sitemap.xml`**: Crawler-friendly list of all data URLs (valid XML urlset)
-- **`README.ai.md`**: Machine-facing instructions for AI systems
+## Customer Profile Structure
 
-### Per-Business Structure
-Each business has its own folder under `businesses/<slug>/`:
+Each customer has a dedicated folder under `businesses/{customer-slug}/`:
 
-- **`manifest.json`** (required): Entrypoint listing all available data artifacts
-- **`organization.jsonld`** (required): Schema.org Organization with business details
-- **`products.jsonld`** (optional): Schema.org ItemList of products/services
-- **`updates/feed.json`** (optional): Schema.org DataFeed with recent updates
+| File | Purpose |
+|------|---------|
+| `profile.json` | Full structured profile with facts, confidence, sources |
+| `profile.jsonld` | Schema.org representation |
+| `sources.json` | Source URLs with metadata |
+| `approval.json` | Approval status and scope |
+| `registry-entry.json` | Lightweight entry for discovery |
+| `*.md` | Human-readable supporting docs |
 
-## Validation
+See `businesses/example-co/` for a complete example.
 
-### Local Validation
-Run the validation script before committing:
+---
+
+## How Validation Works
+
+Run validation before any publication:
 
 ```bash
-python3 scripts/validate.py
-```
+# Validate all profiles
+python scripts/validate.py
 
-Validate a specific customer profile package:
-
-```bash
+# Validate specific profile
 python scripts/validate_business_profile.py businesses/example-co
 ```
 
-Validate all customer profile packages:
+Validation checks:
+- JSON schema compliance
+- Required fields present
+- Source attribution links
+- Approval status
+
+---
+
+## How to Onboard a Customer
+
+1. **Create customer folder** from template:
+   ```bash
+   cp -r templates/customer-profile-template businesses/{customer-slug}
+   ```
+
+2. **Gather data** - Review public website, collect customer questionnaire
+
+3. **Build profile** - Populate `profile.json` with facts and sources
+
+4. **Generate approval packet**:
+   ```bash
+   python scripts/build_approval_packet.py businesses/{customer-slug}
+   ```
+
+5. **Submit for approval** - Send `approval-packet.md` to customer
+
+6. **Record approval** - Update `approval.json` with status
+
+7. **Generate registry entry**:
+   ```bash
+   python scripts/build_registry_entry.py businesses/{customer-slug}
+   ```
+
+8. **Validate and publish** - Run validation, commit changes
+
+---
+
+## How the Business Registry Connects
+
+This repo (VizAI) stores rich profiles. A separate `business-registry` repo stores lightweight discovery cards.
+
+**VizAI → Rich source of truth** (full profiles, all metadata)
+
+**business-registry → Lightweight discovery** (name, domain, short description, profile link)
+
+To export a registry entry:
 
 ```bash
-python scripts/validate_business_profile.py
+python scripts/export_registry_entry.py businesses/{customer-slug}
 ```
 
-Build crawler-friendly catalog and sitemap artifacts:
+Output goes to `registry/{country}/{region}/{city}/{slug}.json` — ready to copy to business-registry after manual review.
+
+See `docs/business-registry-sync.md` for the full sync design.
+
+---
+
+## What Should Not Be Published
+
+Data governance rules in `policies/`:
+
+- **Never publish**: Private questionnaire answers, raw scrape text, confidential contacts, pricing, contracts, internal notes
+- **Publish only**: Approved customer profiles, source-backed public facts, lightweight registry entries
+- **AI-generated content**: Must be reviewed by a human before publication
+
+See `PUBLICATION_RULES.md` for the complete rules.
+
+---
+
+## Quick Commands
 
 ```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Validate all data
+python scripts/validate.py
+
+# Build artifacts
 python scripts/build_dataset_catalog.py
 python scripts/build_sitemap.py
+python scripts/build_registry_entry.py businesses/{customer-slug}
+
+# Generate approval packet
+python scripts/build_approval_packet.py businesses/{customer-slug}
+
+# Export for business-registry
+python scripts/export_registry_entry.py businesses/{customer-slug}
 ```
 
-Notes:
-- `build_dataset_catalog.py` scans `businesses/`, includes active profiles, and writes root `dataset-catalog.json`.
-- `build_sitemap.py` writes root `sitemap.xml` and uses a configurable `BASE_URL` constant near the top of the script.
+---
 
-Create a safe starter customer package (no scraping, no AI calls):
+## Current Status
 
-```bash
-python scripts/onboard_customer.py --name "Example Co" --domain "https://example.com" --country CA --region ON --city Perth
-```
+**Early MVP / Active Development**
 
-Create a safe website crawl plan (no heavy scraping):
+This repository is in active development. Features:
+- Rich profile structure with source attribution
+- Approval workflow
+- Registry entry export
+- Validation tooling
+- Data governance policies
 
-```bash
-python scripts/plan_website_crawl.py --domain "https://example.com" --output businesses/example-co/crawl-plan.json
-```
+planned:
+- Enhanced validation rules
+- Automated sync to business-registry
+- Monitoring for drift and changes
 
-Always respect `robots.txt` and website terms before running any real crawl.
+---
 
-Install minimal dependencies:
+## Resources
 
-```bash
-pip install -r requirements.txt
-```
+- `docs/onboarding-workflow.md` — End-to-end onboarding process
+- `docs/business-registry-sync.md` — Sync design to business-registry
+- `docs/customer-data-model.md` — Data model reference
+- `PUBLICATION_RULES.md` — Publication guardrails
+- `policies/*.md` — All governance policies
 
-The script checks:
-- JSON validity for all `.json` and `.jsonld` files
-- Required files exist in each business folder
-- Manifest references all artifacts listed in distribution
-- Dataset catalog references valid manifests
-
-### Continuous Integration
-GitHub Actions automatically runs validation on all pushes and pull requests. See `.github/workflows/validate.yml` for details.
-
-The dedicated Data Hub workflow is `.github/workflows/validate-vizai-data-hub.yml` and runs:
-- `python scripts/validate_business_profile.py businesses/example-co`
-- `python scripts/build_registry_entry.py businesses/example-co`
-- `python scripts/build_dataset_catalog.py`
-- `python scripts/build_sitemap.py`
-
-## Data Access
-
-All data is accessible via raw GitHub URLs. For example:
-
-- **Dataset Catalog**: `https://raw.githubusercontent.com/vizai-io/vizai/main/dataset-catalog.json`
-- **Example Company Manifest**: `https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/example-co/manifest.json`
-- **Example Organization**: `https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/example-co/organization.jsonld`
-
-## Contributing
-
-### Adding a New Company
-
-1. **Copy the template**:
-   ```bash
-   cp -r templates businesses/your-company-slug
-   ```
-
-2. **Create required directory structure**:
-   ```bash
-   mkdir -p businesses/your-company-slug/updates
-   ```
-
-3. **Edit the files**:
-   - Update `businesses/your-company-slug/manifest.json`:
-     - Replace `YOUR_COMPANY_NAME`, `YOUR_SLUG`, and dates
-     - Update `distribution` URLs to point to your slug
-   - Update `businesses/your-company-slug/organization.jsonld`:
-     - Replace all placeholder values (YOUR_COMPANY_NAME, YOUR_WEBSITE, etc.)
-     - Fill in actual business information
-   - Optionally create `products.jsonld` and `updates/feed.json`
-
-4. **Add to dataset catalog**:
-   - Edit `dataset-catalog.json`
-   - Add a new entry to the `dataset` array referencing your manifest URL
-
-5. **Add to sitemap**:
-   - Edit `sitemap.xml`
-   - Add `<url>` entries for your manifest and main artifacts
-
-6. **Validate**:
-   ```bash
-   python3 scripts/validate.py
-   ```
-
-7. **Commit and push**:
-   ```bash
-   git add businesses/your-company-slug
-   git commit -m "Add [Company Name] dataset"
-   git push
-   ```
-
-### Guidelines
-
-- Use lowercase, hyphenated slugs for company folders (e.g., `acme-corp`, `example-co`)
-- Ensure all JSON files are valid (no trailing commas, comments, etc.)
-- Use current dates in ISO format (YYYY-MM-DD)
-- Include proper Schema.org `@context` and `@type` in all JSON-LD files
-- Reference the actual raw GitHub URLs in manifests and catalogs
-
-## Usage Policy
-
-See `policies/ai-usage.md` for detailed information about:
-- Permitted uses (AI training, analytics, integration, redistribution)
-- Attribution requirements
-- Data quality and warranties
-- Licensing (CC BY 4.0 for data)
-- Privacy and security guidelines
-
-## Contact
-
-- **Data licensing and partnerships**: data@vizai.io
-- **Security issues**: security@vizai.io
-- **General inquiries**: Open an issue in this repository
+---
 
 ## License
 
 - **Data**: Creative Commons Attribution 4.0 International (CC BY 4.0)
-- **Code** (validation scripts, templates): MIT License (see individual files)
-
----
-
-**Version**: 1.0
-**Last Updated**: 2026-04-27
+- **Code**: MIT License

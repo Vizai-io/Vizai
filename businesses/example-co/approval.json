@@ -17,5 +17,7 @@
     "proof-points.md",
     "sources.json"
   ],
-  "notes": "Sample approval packet for fictional customer data."
+  "notes": "Sample approval packet for fictional customer data.",
+  "verificationStatus": "partially_verified",
+  "confidenceScore": 0.9
 }
