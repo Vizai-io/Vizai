@@ -1,0 +1,51 @@
+{
+  "id": "example-co",
+  "isSample": true,
+  "status": "draft",
+  "name": "Example Co.",
+  "legalName": "Example Company LLC",
+  "tagline": "Fictional cloud software company used for VizAI demos.",
+  "website": "https://example-co.com",
+  "description": "Example Co. is a fictional business profile used to demonstrate the VizAI Data Hub structure.",
+  "founded": "2020-01-15",
+  "headquarters": {
+    "city": "San Francisco",
+    "region": "CA",
+    "country": "US"
+  },
+  "industries": [
+    "Software",
+    "Cloud Infrastructure",
+    "Data Analytics"
+  ],
+  "services": [
+    "Cloud migration consulting",
+    "Managed data integration",
+    "AI readiness assessments"
+  ],
+  "products": [
+    "CloudSync Pro",
+    "DataAnalyzer Suite"
+  ],
+  "locations": [
+    {
+      "name": "San Francisco HQ",
+      "city": "San Francisco",
+      "region": "CA",
+      "country": "US",
+      "type": "Headquarters"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is this a real company?",
+      "answer": "No. Example Co. is fictional sample data."
+    }
+  ],
+  "proofPoints": [
+    "Sample benchmark metrics only.",
+    "No real customer claims are included."
+  ],
+  "updatedAt": "2026-04-27",
+  "version": "1.0.0"
+}

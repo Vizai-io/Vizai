@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "slug": "example-co",
+      "name": "Example Co.",
+      "profileUrl": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/example-co/profile.json",
+      "industry": [
+        "Software",
+        "Cloud Infrastructure",
+        "Data Analytics"
+      ],
+      "updatedAt": "2026-04-27"
+    }
+  ]
+}

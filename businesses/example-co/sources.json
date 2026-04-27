@@ -1,0 +1,22 @@
+{
+  "customerSlug": "example-co",
+  "isSample": true,
+  "sources": [
+    {
+      "id": "src-001",
+      "title": "Example Co. Website (Sample)",
+      "url": "https://example-co.com",
+      "type": "website",
+      "capturedAt": "2026-04-27",
+      "notes": "Fictional placeholder source."
+    },
+    {
+      "id": "src-002",
+      "title": "Sample Product Sheet",
+      "url": "https://example-co.com/products",
+      "type": "product-page",
+      "capturedAt": "2026-04-27",
+      "notes": "Fictional placeholder source."
+    }
+  ]
+}

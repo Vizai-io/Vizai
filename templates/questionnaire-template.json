@@ -1,0 +1,32 @@
+{
+  "templateVersion": "1.0.0",
+  "title": "VizAI Customer Discovery Questionnaire",
+  "sections": [
+    {
+      "id": "company-basics",
+      "label": "Company Basics",
+      "questions": [
+        "What is the legal business name?",
+        "What is your primary website URL?",
+        "What is the one-sentence business description?"
+      ]
+    },
+    {
+      "id": "offerings",
+      "label": "Services and Products",
+      "questions": [
+        "What services do you offer?",
+        "What products do you offer?",
+        "Which industries do you primarily serve?"
+      ]
+    },
+    {
+      "id": "trust",
+      "label": "Proof and Sources",
+      "questions": [
+        "What sources verify your claims?",
+        "What proof points are approved for publication?"
+      ]
+    }
+  ]
+}

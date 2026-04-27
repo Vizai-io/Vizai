@@ -1,0 +1,10 @@
+{
+  "slug": "customer-slug",
+  "name": "Customer Name",
+  "profileUrl": "https://raw.githubusercontent.com/vizai-io/vizai/main/businesses/customer-slug/profile.json",
+  "industry": [
+    "Industry 1",
+    "Industry 2"
+  ],
+  "updatedAt": "YYYY-MM-DD"
+}

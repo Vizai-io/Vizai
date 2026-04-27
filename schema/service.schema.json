@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vizai.io/schema/service.schema.json",
+  "title": "Service",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "category": { "type": "string" },
+    "targetAudience": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

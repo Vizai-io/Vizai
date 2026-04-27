@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vizai.io/schema/registry-entry.schema.json",
+  "title": "RegistryEntry",
+  "type": "object",
+  "required": ["slug", "name", "profileUrl", "updatedAt"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "profileUrl": { "type": "string", "format": "uri" },
+    "industry": { "type": "array", "items": { "type": "string" } },
+    "updatedAt": { "type": "string", "format": "date" }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vizai.io/schema/source.schema.json",
+  "title": "Source",
+  "type": "object",
+  "required": ["id", "title", "url", "type", "capturedAt"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "type": { "type": "string" },
+    "capturedAt": { "type": "string", "format": "date" },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}

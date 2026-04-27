@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vizai.io/schema/location.schema.json",
+  "title": "Location",
+  "type": "object",
+  "required": ["name", "city", "country"],
+  "properties": {
+    "name": { "type": "string" },
+    "type": { "type": "string" },
+    "street": { "type": "string" },
+    "city": { "type": "string" },
+    "region": { "type": "string" },
+    "postalCode": { "type": "string" },
+    "country": { "type": "string" }
+  },
+  "additionalProperties": true
+}

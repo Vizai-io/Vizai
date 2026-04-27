@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vizai.io/schema/product.schema.json",
+  "title": "Product",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "category": { "type": "string" },
+    "url": { "type": "string", "format": "uri" }
+  },
+  "additionalProperties": true
+}

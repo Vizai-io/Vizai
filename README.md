@@ -1,10 +1,12 @@
 # VizAI — AI Data Hub Template
 
-This repository is a production-ready template for publishing canonical, machine-readable business data (Schema.org JSON-LD) in a way that is easy to validate, version, and distribute.
+This repository is a production-ready template for publishing canonical, machine-readable business data (Schema.org JSON-LD and structured profile JSON) in a way that is easy to validate, version, and distribute.
 
 ## Overview
 
 The VizAI AI Data Hub provides a standardized structure for publishing structured business information that can be consumed by AI systems, data analysts, and integrators. All data is published as valid Schema.org JSON-LD with comprehensive validation and version control via Git.
+
+The repository now includes a foundational rich profile package model under `businesses/{customer-slug}/` with profile, sources, approval, and changelog artifacts.
 
 ### Primary Audience
 - AI systems and data consumers
@@ -167,4 +169,4 @@ See `policies/ai-usage.md` for detailed information about:
 ---
 
 **Version**: 1.0
-**Last Updated**: 2026-01-06
+**Last Updated**: 2026-04-27

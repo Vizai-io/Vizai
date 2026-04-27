@@ -1,0 +1,21 @@
+{
+  "customerSlug": "example-co",
+  "isSample": true,
+  "status": "pending",
+  "approvedBy": null,
+  "approvedAt": null,
+  "submittedAt": "2026-04-27",
+  "scope": [
+    "profile.json",
+    "profile.jsonld",
+    "company.md",
+    "services.md",
+    "products.md",
+    "locations.md",
+    "industries.md",
+    "faqs.md",
+    "proof-points.md",
+    "sources.json"
+  ],
+  "notes": "Sample approval packet for fictional customer data."
+}
